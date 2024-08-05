@@ -21,3 +21,10 @@ def checkUnique():
     len_data = len(readData())
     len_uniquedata  = len(readUniqueData())
     print(f"Check unique: {len_data}-{len_uniquedata}={len_data-len_uniquedata}")
+def convertToL2Numpy(data):
+    indexs = data.index
+    columns = data.columns
+    for index in indexs:
+        for column in columns:
+            data.loc[index, column] = data.loc[index, column]%100
+    return data
