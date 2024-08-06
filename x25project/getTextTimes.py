@@ -23,3 +23,6 @@ def getTextTimes(start_date_str, end_date_str):
     return textTimes
 # Ví dụ sử dụng hàm
 # getTextTimes('01-08-2024', '04-08-2024')
+def getTextTimeNow(date_format = '%d-%m-%Y'):
+    now  = datetime.now()
+    return now.strftime(date_format)

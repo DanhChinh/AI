@@ -2,7 +2,7 @@ from getTextTimes import getTextTimes
 from handleFrame import readData, saveData, sortData
 from getKq import getKq
 data = readData("data.csv")
-textTimes = getTextTimes('01-01-2024', '05-08-2024')
+textTimes = getTextTimes('01-01-2017', '30-07-2024')
 
 for textTime in textTimes:
     if textTime not in data.index:
