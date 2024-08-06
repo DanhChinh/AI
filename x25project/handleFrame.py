@@ -7,6 +7,9 @@ def readData(csv_file="data.csv"):
     df = pd.DataFrame(columns=[f"KQ[{i}]" for i in range(27)])
     df.to_csv(csv_file)
     return df
+def readDataL2(csv_file="dataL2.csv"):
+    return pd.read_csv(csv_file, index_col=0).to_numpy()
+
 def saveData(data, csv_file="data.csv"):
     data.to_csv(csv_file)
 def sortData(data):
@@ -21,10 +24,13 @@ def checkUnique():
     len_data = len(readData())
     len_uniquedata  = len(readUniqueData())
     print(f"Check unique: {len_data}-{len_uniquedata}={len_data-len_uniquedata}")
-def convertToL2Numpy(data):
+def convertToL2():
+    data = readUniqueData()
     indexs = data.index
     columns = data.columns
     for index in indexs:
         for column in columns:
-            data.loc[index, column] = data.loc[index, column]%100
+            data.loc[index, column] = data.loc[index, column]%100       
+    saveData(data, "dataL2.csv")
     return data
+
